@@ -38,7 +38,7 @@ export default class App extends React.Component {
       <h1 className="test">Table</h1>
       <BootstrapTable className="col-sm-9" data={ data } pagination={ true } options={ options }>
        <TableHeaderColumn dataField='id' isKey={ true } dataSort={ true }>Id</TableHeaderColumn>
-       <TableHeaderColumn dataField='userName' dataSort={ true }>User Name Name</TableHeaderColumn>
+       <TableHeaderColumn dataField='userName' dataSort={ true } filter={ { type: 'TextFilter', defaultValue: 'Pikachu' } }>User Name</TableHeaderColumn>
        <TableHeaderColumn dataField='postTitle' dataSort={ true }>Post Title</TableHeaderColumn>
        <TableHeaderColumn dataField='views' dataSort={ true }>Views</TableHeaderColumn>
        <TableHeaderColumn dataField='likes' dataSort={ true }>Likes</TableHeaderColumn>
