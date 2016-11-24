@@ -1,0 +1,26 @@
+[
+  {
+    "id": "0",
+    "userName": "Pikachu",
+    "postTitle": "Life in a PokeBall",
+    "views": 1576,
+    "likes": 1423,
+    "date": "2016-07-14"
+  },
+  {
+    "id": "1",
+    "userName": "Squirtel",
+    "postTitle": "Water Pokemon and Where to Find Them",
+    "views": 4810,
+    "likes": 3333,
+    "date": "2016-04-12"
+  },
+  {
+    "id": "2",
+    "userName": "Squirtel",
+    "postTitle": "I'm Blue Da-Ba-Dee Da-Ba-Die",
+    "views": 5910,
+    "likes": 4321,
+    "date": "2016-02-01"
+  }
+]

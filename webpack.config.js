@@ -15,6 +15,10 @@ var config = {
   module: {
     loaders: [
       {
+        test: /bootstrap\/js\//,
+        loader: 'imports?jQuery=jquery'
+      },
+      {
         test: /\.js?/,
         include: SRC_DIR,
         loader: "babel-loader",
