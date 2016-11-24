@@ -5,6 +5,8 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 import data from "./data.json"
 
+import AppSass from "./App.sass"
+
 let order = 'desc';
 
 export default class App extends React.Component {
@@ -33,7 +35,8 @@ export default class App extends React.Component {
    };
     return (
     <div>
-      <BootstrapTable className="table" data={ data } pagination={ true } options={ options }>
+      <h1 className="test">Table</h1>
+      <BootstrapTable className="col-sm-9" data={ data } pagination={ true } options={ options }>
        <TableHeaderColumn dataField='id' isKey={ true } dataSort={ true }>Id</TableHeaderColumn>
        <TableHeaderColumn dataField='userName' dataSort={ true }>User Name Name</TableHeaderColumn>
        <TableHeaderColumn dataField='postTitle' dataSort={ true }>Post Title</TableHeaderColumn>
