@@ -28,6 +28,8 @@ export default class App extends React.Component {
      paginationSize: 5,  // the pagination bar size.
      prePage: 'Prev', // Previous page button text
      nextPage: 'Next', // Next page button text
+     firstPage: 'First', // First page button text
+     lastPage: 'Last', // Last page button text
      paginationShowsTotal: this.renderShowsTotal  // Accept bool or function
      // hideSizePerPage: true > You can hide the dropdown for sizePerPage
    };
