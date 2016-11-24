@@ -22,5 +22,85 @@
     "views": 5910,
     "likes": 3321,
     "date": "2016-02-01"
+  },
+  {
+    "id": "3",
+    "userName": "Meowth",
+    "postTitle": "9 Lives",
+    "views": 1837,
+    "likes": 162,
+    "date": "2016-11-24"
+  },
+  {
+    "id": "4",
+    "userName": "Charmander",
+    "postTitle": "How to Blow Out Birthday Candles as a Dragon",
+    "views": 8127,
+    "likes": 6174,
+    "date": "2016-06-03"
+  },
+  {
+    "id": "5",
+    "userName": "Charzard",
+    "postTitle": "Keep Your Scales Looking Young",
+    "views": 12452,
+    "likes": 10482,
+    "date": "2015-12-13"
+  },
+  {
+    "id": "6",
+    "userName": "Charzard",
+    "postTitle": "Can Eating More Vegetables Give You Greater Wing Span?",
+    "views": 4910,
+    "likes": 2950,
+    "date": "2016-01-03"
+  },
+  {
+    "id": "7",
+    "userName": "Pikachu",
+    "postTitle": "Not Wanting to Evolve",
+    "views": 20578,
+    "likes": 19682,
+    "date": "2016-02-15"
+  },
+  {
+    "id": "8",
+    "userName": "Bulbasur",
+    "postTitle": "Taking it Slow",
+    "views": 321,
+    "likes": 123,
+    "date": "2015-10-07"
+  },
+  {
+    "id": "9",
+    "userName": "Togepi",
+    "postTitle": "Women Pokemon Trainers Should be Given More Recognition",
+    "views": 17829,
+    "likes": 10567,
+    "date": "2016-03-23"
+  },
+  {
+    "id": "10",
+    "userName": "Pikachu",
+    "postTitle": "Setting the Record Straight on Rumors Against Ash",
+    "views": 14372,
+    "likes": 9823,
+    "date": "2016-11-13"
+  },
+  {
+    "id": "11",
+    "userName": "Charmander",
+    "postTitle": "My Trainer Feeds Me Pizza",
+    "views": 1762,
+    "likes": 547,
+    "date": "2016-08-23"
+  },
+  {
+    "id": "12",
+    "userName": "Pikachu",
+    "postTitle": "Yellow and Electric",
+    "views": 547,
+    "likes": 476,
+    "date": "2016-10-25"
   }
 ]

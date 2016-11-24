@@ -10,10 +10,30 @@ let order = 'desc';
 export default class App extends React.Component {
 
   render () {
-    console.log(data);
+    const options = {
+     page: 1,
+     sizePerPageList: [ {
+       text: '1', value: 1
+     }, {
+       text: '2', value: 2
+     }, {
+       text: '5', value: 5
+     }, {
+       text: 'All', value: data.length
+     } ],
+     sizePerPage: 5,
+     pageStartIndex: 1,
+     paginationSize: 3,  // the pagination bar size.
+     prePage: 'Prev', // Previous page button text
+     nextPage: 'Next', // Next page button text
+     firstPage: 'First', // First page button text
+     lastPage: 'Last', // Last page button text
+     paginationShowsTotal: this.renderShowsTotal  // Accept bool or function
+     // hideSizePerPage: true > You can hide the dropdown for sizePerPage
+   };
     return (
     <div>
-      <BootstrapTable className="table" data={ data }>
+      <BootstrapTable className="table" data={ data } pagination={ true } options={ options }>
        <TableHeaderColumn dataField='id' isKey={ true } dataSort={ true }>Id</TableHeaderColumn>
        <TableHeaderColumn dataField='userName' dataSort={ true }>User Name Name</TableHeaderColumn>
        <TableHeaderColumn dataField='postTitle' dataSort={ true }>Post Title</TableHeaderColumn>
