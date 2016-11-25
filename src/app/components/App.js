@@ -48,7 +48,19 @@ export default class App extends React.Component {
   }
 
   onAddRow(row) {
-  
+    console.log(row);
+    let newRow = {
+      id: row.id,
+      userName: row.userName,
+      postTitle: row.postTitle,
+      views: row.views,
+      likes: row.likes,
+      date: row.date
+    }
+    const dataId = fbRef.push().key;
+    let updates = {};
+    updates[dataId] = newRow;
+    fbRef.update(updates);
   }
 
   render () {

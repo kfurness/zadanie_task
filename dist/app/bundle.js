@@ -22026,11 +22026,7 @@
 	
 	var _reactBootstrapTable = __webpack_require__(/*! react-bootstrap-table */ 179);
 	
-	var _data = __webpack_require__(/*! ./data.json */ 397);
-	
-	var _data2 = _interopRequireDefault(_data);
-	
-	var _App = __webpack_require__(/*! ./App.sass */ 398);
+	var _App = __webpack_require__(/*! ./App.sass */ 397);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
@@ -22042,7 +22038,26 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	// import data from "./data.json"
+	
 	var order = 'desc';
+	
+	var config = {
+	  apiKey: "AIzaSyAaAoOzgQPslrEryz2GMle9M0nVHEwV9Zg",
+	  authDomain: "zadanie-5e816.firebaseapp.com",
+	  databaseURL: "https://zadanie-5e816.firebaseio.com",
+	  storageBucket: "zadanie-5e816.appspot.com",
+	  messagingSenderId: "881816987190"
+	};
+	firebase.initializeApp(config);
+	
+	var fbRef = firebase.database().ref();
+	
+	var data = [];
+	
+	function updateTable(val, id) {
+	  data.push(val);
+	}
 	
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
@@ -22053,19 +22068,29 @@
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	
 	    _this.state = {
-	      data: _data2.default,
+	      data: data,
 	      activeUser: "Pikachu"
 	    };
 	    return _this;
 	  }
 	
 	  _createClass(App, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      var _this2 = this;
+	
+	      fbRef.on("child_added", function (snapshot) {
+	        updateTable(snapshot.val(), snapshot.key);
+	        _this2.setState({
+	          data: data,
+	          activeUser: "Pikachu"
+	        });
+	      }).bind(this);
+	    }
+	  }, {
 	    key: 'onAddRow',
 	    value: function onAddRow(row) {
-	      var update = this.data.push(row);
-	      this.setState({
-	        data: update
-	      });
+	      console.log(row);
 	    }
 	  }, {
 	    key: 'render',
@@ -22080,7 +22105,7 @@
 	        }, {
 	          text: '15', value: 15
 	        }, {
-	          text: 'All', value: _data2.default.length
+	          text: 'All', value: data.length
 	        }],
 	        sizePerPage: 5,
 	        pageStartIndex: 1,
@@ -22106,7 +22131,7 @@
 	          _react2.default.createElement(
 	            _reactBootstrapTable.BootstrapTable,
 	            { className: 'tableDesign',
-	              data: _data2.default,
+	              data: data,
 	              pagination: true,
 	              options: options,
 	              insertRow: true
@@ -38040,108 +38065,6 @@
 
 /***/ },
 /* 397 */
-/*!**************************************!*\
-  !*** ./src/app/components/data.json ***!
-  \**************************************/
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	module.exports = [{
-		"id": 0,
-		"userName": "Pikachu",
-		"postTitle": "Life in a PokeBall",
-		"views": 1576,
-		"likes": 1423,
-		"date": "2016-07-14"
-	}, {
-		"id": 1,
-		"userName": "Squirtel",
-		"postTitle": "Water Pokemon and Where to Find Them",
-		"views": 4810,
-		"likes": 3333,
-		"date": "2016-04-12"
-	}, {
-		"id": 2,
-		"userName": "Squirtel",
-		"postTitle": "I'm Blue Da-Ba-Dee Da-Ba-Die",
-		"views": 5910,
-		"likes": 3321,
-		"date": "2016-02-01"
-	}, {
-		"id": 3,
-		"userName": "Meowth",
-		"postTitle": "9 Lives",
-		"views": 1837,
-		"likes": 162,
-		"date": "2016-11-24"
-	}, {
-		"id": 4,
-		"userName": "Charmander",
-		"postTitle": "How to Blow Out Birthday Candles as a Dragon",
-		"views": 8127,
-		"likes": 6174,
-		"date": "2016-06-03"
-	}, {
-		"id": 5,
-		"userName": "Charzard",
-		"postTitle": "Keep Your Scales Looking Young",
-		"views": 12452,
-		"likes": 10482,
-		"date": "2015-12-13"
-	}, {
-		"id": 6,
-		"userName": "Charzard",
-		"postTitle": "Can Eating More Vegetables Give You Greater Wing Span?",
-		"views": 4910,
-		"likes": 2950,
-		"date": "2016-01-03"
-	}, {
-		"id": 7,
-		"userName": "Pikachu",
-		"postTitle": "Not Wanting to Evolve",
-		"views": 20578,
-		"likes": 19682,
-		"date": "2016-02-15"
-	}, {
-		"id": 8,
-		"userName": "Bulbasur",
-		"postTitle": "Taking it Slow",
-		"views": 321,
-		"likes": 123,
-		"date": "2015-10-07"
-	}, {
-		"id": 9,
-		"userName": "Togepi",
-		"postTitle": "Women Pokemon Trainers Should be Given More Recognition",
-		"views": 17829,
-		"likes": 10567,
-		"date": "2016-03-23"
-	}, {
-		"id": 10,
-		"userName": "Pikachu",
-		"postTitle": "Setting the Record Straight on Rumors Against Ash",
-		"views": 14372,
-		"likes": 9823,
-		"date": "2016-11-13"
-	}, {
-		"id": 11,
-		"userName": "Charmander",
-		"postTitle": "My Trainer Feeds Me Pizza",
-		"views": 1762,
-		"likes": 547,
-		"date": "2016-08-23"
-	}, {
-		"id": 12,
-		"userName": "Pikachu",
-		"postTitle": "Yellow and Electric",
-		"views": 547,
-		"likes": 476,
-		"date": "2016-10-25"
-	}];
-
-/***/ },
-/* 398 */
 /*!*************************************!*\
   !*** ./src/app/components/App.sass ***!
   \*************************************/
@@ -38150,10 +38073,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/sass-loader!./App.sass */ 399);
+	var content = __webpack_require__(/*! !./../../../~/css-loader!./../../../~/sass-loader!./App.sass */ 398);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 401)(content, {});
+	var update = __webpack_require__(/*! ./../../../~/style-loader/addStyles.js */ 400)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -38170,13 +38093,13 @@
 	}
 
 /***/ },
-/* 399 */
+/* 398 */
 /*!********************************************************************!*\
   !*** ./~/css-loader!./~/sass-loader!./src/app/components/App.sass ***!
   \********************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 400)();
+	exports = module.exports = __webpack_require__(/*! ./../../../~/css-loader/lib/css-base.js */ 399)();
 	// imports
 	
 	
@@ -38187,7 +38110,7 @@
 
 
 /***/ },
-/* 400 */
+/* 399 */
 /*!**************************************!*\
   !*** ./~/css-loader/lib/css-base.js ***!
   \**************************************/
@@ -38246,7 +38169,7 @@
 
 
 /***/ },
-/* 401 */
+/* 400 */
 /*!*************************************!*\
   !*** ./~/style-loader/addStyles.js ***!
   \*************************************/
