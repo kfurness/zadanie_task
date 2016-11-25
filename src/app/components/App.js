@@ -36,14 +36,14 @@ export default class App extends React.Component {
     return (
     <div>
       <h1 className="header">Table</h1>
-      <div className="center-block tableDiv" >
-        <BootstrapTable className="tableDesign" data={ data } pagination={ true } options={ options }>
-         <TableHeaderColumn dataField='id' isKey={ true } dataSort={ true }>Id</TableHeaderColumn>
-         <TableHeaderColumn dataField='userName' dataSort={ true } filter={ { type: 'TextFilter', defaultValue: 'Pikachu' } }>User Name</TableHeaderColumn>
+      <div className="center-block tableDiv table-responsive" >
+        <BootstrapTable className="tableDesign" data={ data } pagination={ true } options={ options } insertRow={ true }>
+         <TableHeaderColumn dataField='id' isKey={ true } dataSort={ true } width="60px">Id</TableHeaderColumn>
+         <TableHeaderColumn width="170px" dataField='userName' dataSort={ true } filter={ { type: 'TextFilter'} }>User Name</TableHeaderColumn>
          <TableHeaderColumn dataField='postTitle' dataSort={ true }>Post Title</TableHeaderColumn>
-         <TableHeaderColumn dataField='views' dataSort={ true }>Views</TableHeaderColumn>
-         <TableHeaderColumn dataField='likes' dataSort={ true }>Likes</TableHeaderColumn>
-         <TableHeaderColumn dataField='date' dataSort={ true }>Date Created</TableHeaderColumn>
+         <TableHeaderColumn dataField='views' dataSort={ true } width="80px">Views</TableHeaderColumn>
+         <TableHeaderColumn dataField='likes' dataSort={ true } width="80px">Likes</TableHeaderColumn>
+         <TableHeaderColumn dataField='date' dataSort={ true } width="100px">Date Created</TableHeaderColumn>
        </BootstrapTable>
      </div>
     </div>
