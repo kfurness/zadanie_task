@@ -10,16 +10,27 @@ import AppSass from "./App.sass"
 let order = 'desc';
 
 export default class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      user: "Pikachu"
+    }
+  };
+
+  onAddRow (row) {
+    localStorage.setItem(data, JSON.stringify(row));
+  }
 
   render () {
     const options = {
+     onAddRow: this.onAddRow,
      page: 1,
      sizePerPageList: [ {
-       text: '1', value: 5
+       text: '5', value: 5
      }, {
-       text: '2', value: 10
+       text: '10', value: 10
      }, {
-       text: '5', value: 15
+       text: '15', value: 15
      }, {
        text: 'All', value: data.length
      } ],
@@ -37,7 +48,12 @@ export default class App extends React.Component {
     <div>
       <h1 className="header">Table</h1>
       <div className="center-block tableDiv table-responsive" >
-        <BootstrapTable className="tableDesign" data={ data } pagination={ true } options={ options } insertRow={ true }>
+        <BootstrapTable className="tableDesign"
+            data={ data }
+            pagination={ true }
+            options={ options }
+            insertRow={ true }
+            >
          <TableHeaderColumn dataField='id' isKey={ true } dataSort={ true } width="60px">Id</TableHeaderColumn>
          <TableHeaderColumn width="170px" dataField='userName' dataSort={ true } filter={ { type: 'TextFilter'} }>User Name</TableHeaderColumn>
          <TableHeaderColumn dataField='postTitle' dataSort={ true }>Post Title</TableHeaderColumn>
