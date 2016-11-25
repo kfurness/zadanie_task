@@ -3,22 +3,52 @@
 import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
-import data from "./data.json"
+// import data from "./data.json"
 
 import AppSass from "./App.sass"
 
 let order = 'desc';
 
+
+const config = {
+  apiKey: "AIzaSyAaAoOzgQPslrEryz2GMle9M0nVHEwV9Zg",
+  authDomain: "zadanie-5e816.firebaseapp.com",
+  databaseURL: "https://zadanie-5e816.firebaseio.com",
+  storageBucket: "zadanie-5e816.appspot.com",
+  messagingSenderId: "881816987190"
+};
+firebase.initializeApp(config);
+
+const fbRef = firebase.database().ref();
+
+
+let data = [];
+
+function updateTable(val, id) {
+  data.push(val);
+}
+
 export default class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      user: "Pikachu"
+      data: data,
+      activeUser: "Pikachu"
     }
   };
 
-  onAddRow (row) {
-    localStorage.setItem(data, JSON.stringify(row));
+  componentWillMount() {
+    fbRef.on("child_added", (snapshot) => {
+      updateTable(snapshot.val(), snapshot.key);
+      this.setState({
+        data: data,
+        activeUser: "Pikachu"
+      });
+    }).bind(this)
+  }
+
+  onAddRow(row) {
+  
   }
 
   render () {

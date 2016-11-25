@@ -22047,23 +22047,38 @@
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 	
-	  function App() {
+	  function App(props) {
 	    _classCallCheck(this, App);
 	
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+	
+	    _this.state = {
+	      data: _data2.default,
+	      activeUser: "Pikachu"
+	    };
+	    return _this;
 	  }
 	
 	  _createClass(App, [{
+	    key: 'onAddRow',
+	    value: function onAddRow(row) {
+	      var update = this.data.push(row);
+	      this.setState({
+	        data: update
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var options = {
+	        onAddRow: this.onAddRow,
 	        page: 1,
 	        sizePerPageList: [{
-	          text: '1', value: 5
+	          text: '5', value: 5
 	        }, {
-	          text: '2', value: 10
+	          text: '10', value: 10
 	        }, {
-	          text: '5', value: 15
+	          text: '15', value: 15
 	        }, {
 	          text: 'All', value: _data2.default.length
 	        }],
@@ -22087,18 +22102,23 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'center-block tableDiv' },
+	          { className: 'center-block tableDiv table-responsive' },
 	          _react2.default.createElement(
 	            _reactBootstrapTable.BootstrapTable,
-	            { className: 'tableDesign', data: _data2.default, pagination: true, options: options },
+	            { className: 'tableDesign',
+	              data: _data2.default,
+	              pagination: true,
+	              options: options,
+	              insertRow: true
+	            },
 	            _react2.default.createElement(
 	              _reactBootstrapTable.TableHeaderColumn,
-	              { dataField: 'id', isKey: true, dataSort: true },
+	              { dataField: 'id', isKey: true, dataSort: true, width: '60px' },
 	              'Id'
 	            ),
 	            _react2.default.createElement(
 	              _reactBootstrapTable.TableHeaderColumn,
-	              { dataField: 'userName', dataSort: true, filter: { type: 'TextFilter', defaultValue: 'Pikachu' } },
+	              { width: '170px', dataField: 'userName', dataSort: true, filter: { type: 'TextFilter' } },
 	              'User Name'
 	            ),
 	            _react2.default.createElement(
@@ -22108,17 +22128,17 @@
 	            ),
 	            _react2.default.createElement(
 	              _reactBootstrapTable.TableHeaderColumn,
-	              { dataField: 'views', dataSort: true },
+	              { dataField: 'views', dataSort: true, width: '80px' },
 	              'Views'
 	            ),
 	            _react2.default.createElement(
 	              _reactBootstrapTable.TableHeaderColumn,
-	              { dataField: 'likes', dataSort: true },
+	              { dataField: 'likes', dataSort: true, width: '80px' },
 	              'Likes'
 	            ),
 	            _react2.default.createElement(
 	              _reactBootstrapTable.TableHeaderColumn,
-	              { dataField: 'date', dataSort: true },
+	              { dataField: 'date', dataSort: true, width: '100px' },
 	              'Date Created'
 	            )
 	          )
@@ -38161,7 +38181,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".header {\n  color: red;\n  text-align: center; }\n\n.tableDiv {\n  float: none; }\n", ""]);
+	exports.push([module.id, ".header {\n  color: #337ab7;\n  text-align: center; }\n\n.tableDiv {\n  float: none;\n  max-width: 90vw; }\n\n.react-bs-table-add-btn {\n  margin: 10px; }\n\n.sort-column {\n  min-width: 60px; }\n  .sort-column tr th {\n    min-width: 60px; }\n\n.react-bs-container-header th {\n  min-width: 100px; }\n\n.react-bs-container-body {\n  color: darkslategrey;\n  min-width: 60px; }\n\n.pagination > .active > a {\n  z-index: 0; }\n", ""]);
 	
 	// exports
 
